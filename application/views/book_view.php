@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Church Management System</title>
+    <link href="<?php echo base_url('assests/css/styles.css')?>" rel="stylesheet">
     <link href="<?php echo base_url('assests/bootstrap/css/bootstrap.min.css')?>" rel="stylesheet">
     <link href="<?php echo base_url('assests/datatables/css/dataTables.bootstrap.css')?>" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -67,7 +68,7 @@
 								<td>
 									<button class="btn btn-warning" onclick="edit_book(<?php echo $book->book_id;?>)"><i class="glyphicon glyphicon-pencil"></i></button>
 									<button class="btn btn-danger" onclick="delete_book(<?php echo $book->book_id;?>)"><i class="glyphicon glyphicon-remove"></i></button>
-									<!--<button class="btn btn-success" onclick="view_member(<?php echo $book->book_id;?>)">View</i></button>-->
+									<button class="btn btn-success" onclick="view_member(<?php echo $book->book_id;?>)">View</i></button>
 
 
 								</td>
@@ -166,7 +167,7 @@
     function view_member(id)
     {
       save_method = 'update';
-      $('#form')[0].reset(); // reset form on modals
+      $('#form2')[0].reset(); // reset form on modals
 
       //Ajax Load data from ajax
       $.ajax({
@@ -186,13 +187,14 @@
             $('[name="email"]').val(data.email);
             $('[name="home_town"]').val(data.home_town);
             $('[name="lga"]').val(data.lga);
+            $('[name="address"]').val(data.address);
             $('[name="marital_status"]').val(data.marital_status);
             $('[name="occupation"]').val(data.occupation);
             $('[name="state"]').val(data.state);
 
 
-            $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
-            $('.modal-title').text('View Member'); // Set title to Bootstrap modal title
+            $('#modal_form_view').modal('show'); // show bootstrap modal when complete loaded
+            $('.modal-title').text('ASSEMBLIES OF GOD CHURCH AGODO'); // Set title to Bootstrap modal title
 
         },
         error: function (jqXHR, textStatus, errorThrown)
@@ -377,75 +379,79 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <div class="view-logo">
+          <img class="img-thumbnail" width="70px" src="<?php echo base_url('uploads/agc-logo.png')?>" alt="">
+        </div>
         <center>
-        <h3 class="modal-title">ASSEMBLIES OF GOD CHURCH AGODO</h3>
-        <h2>NO 1 BABATUNDE OLUMIDE STREET, AGODO, LAGOS</h2>
+        <h4 class="modal-title">ASSEMBLIES OF GOD CHURCH AGODO</h4>
+        <h5>NO 1 BABATUNDE OLUMIDE STREET, AGODO, LAGOS</h5>
+        <h5>agcagodo@yahoo.com | +234 903 652 2093</h5>
         </center>
       </div>
       <div class="modal-body form">
-        <form action="#" id="form" class="form-horizontal">
+        <form action="#" id="form2" class="form-horizontal">
           <input type="hidden" value="" name="book_id"/>
           <div class="form-body">
 
             <div class="form-group">
               <label class="control-label col-md-3">Surname</label>
               <div class="col-md-3">
-                <input name="surname" placeholder="Surname" class="form-control" type="text">
+                <input name="surname" disabled placeholder="Surname" class="form-control" type="text">
               </div>
 
               <label class="control-label col-md-3">Other Names</label>
               <div class="col-md-3">
-                <input name="other_names" placeholder="Other Names" class="form-control" type="text">
+                <input name="other_names" disabled placeholder="Other Names" class="form-control" type="text">
               </div>
             </div>
 
             <div class="form-group">
               <label class="control-label col-md-3">Gender</label>
               <div class="col-md-3">
-                <input name="gender" placeholder="Gender" class="form-control" type="text">
+                <input name="gender" disabled placeholder="Gender" class="form-control" type="text">
               </div>
 
               <label class="control-label col-md-3">Department</label>
               <div class="col-md-3">
-                <input name="department" placeholder="Department" class="form-control" type="text">
+                <input name="department" disabled placeholder="Department" class="form-control" type="text">
               </div>
             </div>
 
             <div class="form-group">
               <label class="control-label col-md-3">Membership Status</label>
               <div class="col-md-3">
-                <input name="member_status" placeholder="Membership Status" class="form-control" type="text">
+                <input name="member_status" disabled placeholder="Membership Status" class="form-control" type="text">
               </div>
 
               <label class="control-label col-md-3">Marital Status</label>
               <div class="col-md-3">
-                <input name="marital_status" placeholder="Marital Status" class="form-control" type="text">
+                <input name="marital_status" disabled placeholder="Marital Status" class="form-control" type="text">
               </div>
             </div>
             
             <div class="form-group">
               <label class="control-label col-md-3">Address</label>
               <div class="col-md-9">
-                <input name="address" placeholder="Address" class="form-control" type="text">
+                <input name="address" disabled placeholder="Address" class="form-control" type="text">
               </div>
             </div>
 
             <div class="form-group">
               <label class="control-label col-md-3">Occupation</label>
               <div class="col-md-9">
-                <input name="occupation" placeholder="Occupation" class="form-control" type="text">
+                <input name="occupation" disabled placeholder="Occupation" class="form-control" type="text">
               </div>
             </div>
 
             <div class="form-group">
               <label class="control-label col-md-3">Phone Number</label>
               <div class="col-md-3">
-                <input name="phone" placeholder="Phone Number" class="form-control" type="text">
+                <input name="phone" disabled placeholder="Phone Number" class="form-control" type="text">
               </div>
 
               <label class="control-label col-md-3">E-Mail</label>
               <div class="col-md-3">
-								<input name="email" placeholder="E-Mail" class="form-control" type="text">
+								<input name="email" disabled placeholder="E-Mail" class="form-control" type="text">
 
               </div>
             </div>
@@ -453,13 +459,13 @@
             <div class="form-group">
 							<label class="control-label col-md-3">State</label>
 							<div class="col-md-3">
-								<input name="state" placeholder="State" class="form-control" type="text">
+								<input name="state" disabled placeholder="State" class="form-control" type="text">
 
               </div>
               
               <label class="control-label col-md-3">LGA</label>
 							<div class="col-md-3">
-								<input name="lga" placeholder="LGA" class="form-control" type="text">
+								<input name="lga" disabled placeholder="LGA" class="form-control" type="text">
 
 							</div>
 						</div>
@@ -468,7 +474,7 @@
             <div class="form-group">
 							<label class="control-label col-md-3">Home Town</label>
 							<div class="col-md-9">
-								<input name="home_town" placeholder="Home Town" class="form-control" type="text">
+								<input name="home_town" disabled placeholder="Home Town" class="form-control" type="text">
 
 							</div>
 						</div>
@@ -484,9 +490,12 @@
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
   <!-- End Bootstrap modal 2 -->
-    <blockquote class="blockquote">
+  <center>
+  <blockquote class="blockquote">
       <p class="mb-0">Made With Love</p>
       <footer class="blockquote-footer"> <a href="http://twitter.com/favourch">Favour Chukwuedo</a></footer>
     </blockquote>
+  </center>  
+  
   </body>
 </html>
