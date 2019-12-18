@@ -49,6 +49,12 @@ class Book extends CI_Controller {
 					'lga' => $this->input->post('lga'),
 					'home_town' => $this->input->post('home_town'),
 					'marital_status' => $this->input->post('marital_status'),
+					'year_joined' => $this->input->post('year_joined'),
+					'nok' => $this->input->post('nok'),
+					'status' => $this->input->post('status'),
+					'bday' => $this->input->post('bday'),
+					'bmonth' => $this->input->post('bmonth'),
+
 				);
 			$insert = $this->book_model->book_add($data);
 			echo json_encode(array("status" => TRUE));
@@ -87,6 +93,11 @@ class Book extends CI_Controller {
 			'lga' => $this->input->post('lga'),
 			'home_town' => $this->input->post('home_town'),
 			'marital_status' => $this->input->post('marital_status'),
+			'year_joined' => $this->input->post('year_joined'),
+			'nok' => $this->input->post('nok'),
+			'status' => $this->input->post('status'),
+			'bday' => $this->input->post('bday'),
+			'bmonth' => $this->input->post('bmonth'),
 			);
 		$this->book_model->book_update(array('book_id' => $this->input->post('book_id')), $data);
 		echo json_encode(array("status" => TRUE));

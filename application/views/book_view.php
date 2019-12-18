@@ -386,6 +386,13 @@
                 </div>
               </div>
 
+              <div class="form-group">
+                <label class="control-label col-md-3">Status</label>
+                <div class="col-md-3">
+                  <input name="status" placeholder="Status" class="form-control" type="text">
+                </div>
+              </div>
+
             </div>
           </form>
         </div>
@@ -530,6 +537,13 @@
                 <div class="col-md-3">
                   <input name="nok" disabled placeholder="NextOfKin" class="form-control" type="text">
 
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label col-md-3">Status</label>
+                <div class="col-md-3">
+                  <input name="status" disabled placeholder="Status" class="form-control" type="text">
                 </div>
               </div>
 
